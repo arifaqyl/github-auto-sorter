@@ -16,9 +16,13 @@ import java.util.Scanner;
  *
  * To apply changes you need a GitHub Personal Access Token (PAT):
  *   Settings → Developer settings → Personal access tokens → Fine-grained
- *   Permission: Repository → Topics (read & write)
+ *   Permission: Repository → Metadata (read & write)
+ *
+ * The token can also be supplied via GITHUB_TOKEN, GITHUB_PAT, or GH_TOKEN.
  */
 public class Main {
+
+    private static final String[] TOKEN_ENV_KEYS = {"GITHUB_TOKEN", "GITHUB_PAT", "GH_TOKEN"};
 
     // ANSI colours for cleaner terminal output
     private static final String RESET  = "\u001B[0m";
@@ -44,10 +48,7 @@ public class Main {
 
         // ── Step 2: Optional token for writing ───────────────────────────────
         System.out.println();
-        System.out.println(YELLOW + "To apply topic changes you need a GitHub Personal Access Token.");
-        System.out.println("Leave blank to run in preview-only mode (no changes made)." + RESET);
-        System.out.print(BLUE + "GitHub PAT (optional): " + RESET);
-        String token = scanner.nextLine().trim();
+        String token = readToken(scanner);
 
         GitHubClient client = new GitHubClient(token.isEmpty() ? null : token);
         RepoTagger   tagger = new RepoTagger();
@@ -156,5 +157,20 @@ public class Main {
         System.out.println(RESET);
         System.out.println("Auto-tags GitHub repositories based on name, description & language.");
         System.out.println();
+    }
+
+    private static String readToken(Scanner scanner) {
+        for (String key : TOKEN_ENV_KEYS) {
+            String value = System.getenv(key);
+            if (value != null && !value.isBlank()) {
+                System.out.println(YELLOW + "Using GitHub token from $" + key + "." + RESET);
+                return value.trim();
+            }
+        }
+
+        System.out.println(YELLOW + "To apply topic changes you need a GitHub Personal Access Token.");
+        System.out.println("Leave blank to run in preview-only mode (no changes made)." + RESET);
+        System.out.print(BLUE + "GitHub PAT (optional): " + RESET);
+        return scanner.nextLine().trim();
     }
 }

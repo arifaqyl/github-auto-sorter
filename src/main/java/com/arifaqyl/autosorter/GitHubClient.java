@@ -21,6 +21,7 @@ public class GitHubClient {
 
     private static final String BASE_URL  = "https://api.github.com";
     private static final String USER_AGENT = "github-auto-sorter/1.0";
+    private static final String API_VERSION = "2022-11-28";
 
     private final HttpClient http;
     private final String token; // null = read-only mode
@@ -69,7 +70,8 @@ public class GitHubClient {
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Authorization", "Bearer " + token)
-                .header("Accept",        "application/vnd.github.mercy-preview+json")
+                .header("Accept",        "application/vnd.github+json")
+                .header("X-GitHub-Api-Version", API_VERSION)
                 .header("Content-Type",  "application/json")
                 .header("User-Agent",    USER_AGENT)
                 .PUT(HttpRequest.BodyPublishers.ofString(body.toString()))
@@ -109,7 +111,8 @@ public class GitHubClient {
     private HttpRequest buildGet(String url) {
         HttpRequest.Builder builder = HttpRequest.newBuilder()
                 .uri(URI.create(url))
-                .header("Accept",     "application/vnd.github.mercy-preview+json")
+                .header("Accept",     "application/vnd.github+json")
+                .header("X-GitHub-Api-Version", API_VERSION)
                 .header("User-Agent", USER_AGENT)
                 .GET();
 

@@ -10,6 +10,7 @@ Built with Java 11 — no frameworks, no fluff.
 - Analyses each repo's name, description, and primary language
 - Suggests relevant topics (e.g. `java`, `algorithms`, `web`, `automation`)
 - Optionally applies the tags directly via the GitHub API
+- Can read a fine-grained token from `GITHUB_TOKEN`, `GITHUB_PAT`, or `GH_TOKEN`
 
 ## Usage
 
@@ -22,7 +23,7 @@ java -jar github-auto-sorter.jar
 **Apply mode** (requires a GitHub Personal Access Token):
 ```bash
 java -jar github-auto-sorter.jar
-# Enter username + PAT with repo/topics write permission
+# Enter username + PAT, or set GITHUB_TOKEN / GITHUB_PAT / GH_TOKEN
 ```
 
 ## Building
@@ -35,8 +36,9 @@ java -jar target/github-auto-sorter.jar
 ## Getting a Personal Access Token
 
 1. GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens
-2. Create token with **Repository** → **Topics** (Read and Write)
-3. Paste when prompted
+2. Create token with **Repository** → **Metadata** (Read and Write)
+3. Add access to the repos you want to organize
+4. Paste when prompted, or export it as `GITHUB_TOKEN`
 
 ## Project structure
 
