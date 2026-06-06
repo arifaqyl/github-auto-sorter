@@ -1,6 +1,6 @@
-# GitHub Auto-Sorter
+# GitHub Profile Organizer
 
-Automatically tags and organises GitHub repositories using the GitHub REST API.
+Automatically organizes GitHub repository topics and metadata using the GitHub REST API.
 
 Built with Java 11 — no frameworks, no fluff.
 
@@ -16,13 +16,13 @@ Built with Java 11 — no frameworks, no fluff.
 
 **Preview mode** (no token needed — just shows suggestions):
 ```bash
-java -jar github-auto-sorter.jar
+java -jar github-profile-organizer.jar
 # Enter username, leave token blank
 ```
 
 **Apply mode** (requires a GitHub Personal Access Token):
 ```bash
-java -jar github-auto-sorter.jar
+java -jar github-profile-organizer.jar
 # Enter username + PAT, or set GITHUB_TOKEN / GITHUB_PAT / GH_TOKEN
 ```
 
@@ -30,7 +30,7 @@ java -jar github-auto-sorter.jar
 
 ```bash
 mvn clean package
-java -jar target/github-auto-sorter.jar
+java -jar target/github-profile-organizer.jar
 ```
 
 ## Getting a Personal Access Token

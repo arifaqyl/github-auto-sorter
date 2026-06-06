@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.arifaqyl</groupId>
-    <artifactId>github-auto-sorter</artifactId>
+    <artifactId>github-profile-organizer</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>GitHub Auto-Sorter</name>
-    <description>Automatically tags and organises GitHub repositories using the GitHub API</description>
+    <name>GitHub Profile Organizer</name>
+    <description>Organizes GitHub repository topics and metadata through the GitHub REST API</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

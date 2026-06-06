@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.arifaqyl</groupId>
-  <artifactId>github-auto-sorter</artifactId>
-  <name>GitHub Auto-Sorter</name>
+  <artifactId>github-profile-organizer</artifactId>
+  <name>GitHub Profile Organizer</name>
   <version>1.0.0</version>
-  <description>Automatically tags and organises GitHub repositories using the GitHub API</description>
+  <description>Organizes GitHub repository topics and metadata through the GitHub REST API</description>
   <build>
     <plugins>
       <plugin>

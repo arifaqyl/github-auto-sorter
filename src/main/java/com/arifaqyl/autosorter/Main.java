@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * GitHub Auto-Sorter
+ * GitHub Profile Organizer
  *
  * Reads all public repositories for a GitHub user,
  * suggests relevant topics based on repo names/descriptions/language,
  * and optionally applies them via the GitHub API.
  *
  * Usage:
- *   java -jar github-auto-sorter.jar
+ *   java -jar github-profile-organizer.jar
  *
  * To apply changes you need a GitHub Personal Access Token (PAT):
  *   Settings → Developer settings → Personal access tokens → Fine-grained
@@ -151,7 +151,7 @@ public class Main {
     private static void printBanner() {
         System.out.println(CYAN + BOLD);
         System.out.println("╔═══════════════════════════════════════╗");
-        System.out.println("║      GitHub Auto-Sorter v1.0          ║");
+        System.out.println("║   GitHub Profile Organizer v1.0       ║");
         System.out.println("║   by @arifaqyl  |  arifaqyl.me        ║");
         System.out.println("╚═══════════════════════════════════════╝");
         System.out.println(RESET);
