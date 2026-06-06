@@ -20,7 +20,7 @@ import java.util.List;
 public class GitHubClient {
 
     private static final String BASE_URL  = "https://api.github.com";
-    private static final String USER_AGENT = "github-auto-sorter/1.0";
+    private static final String USER_AGENT = "github-profile-organizer/1.0";
     private static final String API_VERSION = "2022-11-28";
 
     private final HttpClient http;
